@@ -1,23 +1,53 @@
 {
-  "name": "daily-calorie-tracker",
+  "name": "daily-calorie-tracker-mcp",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "MCP server for tracking daily calorie consumption through natural language interactions",
+  "main": "dist/index.js",
+  "bin": {
+    "daily-calorie-tracker": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/food-database.json dist/",
+    "prepublishOnly": "npm run build",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "calorie-tracker",
+    "nutrition",
+    "health",
+    "ai",
+    "claude"
+  ],
+  "author": "VeriTeknik",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeriTeknik/daily-calorie-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VeriTeknik/daily-calorie-tracker/issues"
+  },
+  "homepage": "https://github.com/VeriTeknik/daily-calorie-tracker#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.16.0",
+    "better-sqlite3": "^12.2.0",
+    "tsx": "^4.20.3"
+  },
+  "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^24.0.15",
-    "better-sqlite3": "^12.2.0",
-    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
